@@ -7,10 +7,10 @@ if(!file.exists("./Datasets")){
     fileURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
     download.file(fileURL, destfile =  "Dataset.zip")
     unzip(zipfile = "Dataset.zip", exdir = "Datasets")
+    
+    # Remove the zip file
+    file.remove("Dataset.zip")
 }
-
-# Remove the zip file
-file.remove("Dataset.zip")
 
 # Read the file and set the "NA" value as "?"
 datasets <- read.csv("./Datasets/household_power_consumption.txt", header = TRUE, sep = ";", na.strings = "?", nrows = 2075259)
